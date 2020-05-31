@@ -1,0 +1,199 @@
+.dl-profile-booking-wrapper, .dl-profile-not-bookable-wrapper {
+    flex: 4;
+    padding: 0 30px;
+    position: relative;
+}
+.dl-profile-booking-wrapper {
+    display: flex;
+    margin-bottom: 16px;
+    z-index: 2;
+    margin-top: -80px;
+}
+.profiles #booking, .appointments #booking {
+    min-height: 300px;
+}
+.dl-profile-booking {
+    flex: 1;
+}
+.dl-booking-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 14px;
+}
+.dl-booking-title {
+    position: relative;
+    display: block;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #0596de;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 10px 0 rgba(67,95,113,0.2);
+    margin-bottom: -4px;
+    z-index: 1;
+}
+
+@media (min-width: 768px){    
+    .dl-text-title-sub-bold {
+        font-size: 16px;
+    }
+
+}
+
+.dl-text-title-sub-bold {
+    font-family: "Montserrat",arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: none;
+    text-align: left;
+}
+
+.dl-text-color-inherit {
+    color: inherit;
+}
+
+.dl-text {
+    margin: 0;
+    font-weight: 400;
+    
+}
+h3.dl-text{
+    color: #fff;
+    font-weight: 500;
+}
+@media (min-width: 768px){
+    .dl-text-title-sub-bold {
+        font-size: 16px;
+    }
+
+}
+
+
+.dl-text-title-sub-bold {
+    font-family: "Montserrat",arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: none;
+    text-align: left;
+}
+
+.dl-text-color-inherit {
+    color: inherit;
+}
+
+.dl-text {
+    margin: 0;
+    font-weight: 400;
+}
+@media (min-width: 768px){
+    .dl-text-title-sub-bold {
+        font-size: 16px;
+    }
+
+}
+.dl-text-title-sub-bold {
+    font-family: "Montserrat", arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: none;
+    text-align: left;
+}
+.dl-text-color-inherit {
+    color: inherit;
+}
+
+
+
+
+.dl-booking-title {
+    position: relative;
+    display: block;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #0596de;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 10px 0 rgba(67,95,113,0.2);
+    margin-bottom: -4px;
+    z-index: 1;
+}
+@media (min-width: 768px){
+    .dl-text-body {
+        font-size: 14px;
+    }
+
+}
+
+.dl-booking-title-subtext {
+    margin-top: 8px;
+}
+.dl-booking-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: auto;
+    margin-top: 0;
+    margin-left: -6px;
+    bottom: -6px;
+    border-style: solid;
+    border-width: 6px 6px 0;
+    border-color: #0596de transparent transparent;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.booking.booking-compact-layout {
+    background: #fff;
+    border: 1px solid rgba(67,95,113,0.2);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 10px rgba(67,95,113,0.08);
+}
+.booking {
+    padding: 32px 0 16px;
+}
+.dl-step {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 16px;
+}
+.dl-step-progress.dl-step-progress-completed {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    height: calc(100% + 1px);
+}
+.dl-step-number-completed {
+    background-color: #17b355;
+}
+
+.dl-step-number {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: -14px;
+    top: -3px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 28px;
+    border-radius: 50%;
+    background-color: #0596de;
+    color: #fff;
+    -webkit-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+}
+.dl-step-number svg {
+    width: 28px;
+    height: 28px;
+}
+.dl-layout-spacing-xs-0 {
+    margin: 0;
+    width: 100%;
+}
+.booking hr {
+    margin: 16px 0;
+}
+
+.dropdown-toggle::after {  
+    float: right;
+    margin-top: 10px;
+}
