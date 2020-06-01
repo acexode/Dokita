@@ -6,8 +6,7 @@ import {} from 'dotenv/config'
 import Book from '../book/book'
 import { withRouter } from 'react-router-dom'
 const DoctorProfile = ({location}) => {
-    console.log(process.env.REACT_APP_GoogleMap);
-    console.log(process.env.GoogleMap)
+    
     const {name, specialty, image, biography, degree, phone, email, lat, lng,} = location.state.details
     const places= [  
         {
