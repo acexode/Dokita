@@ -38,7 +38,7 @@ const DoctorProfile = ({location}) => {
                             </div>
                             <div className="dl-profile-doctor-place-map">
                             <WrappedMap 
-                                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
+                                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
                                 loadingElement={<div style={{height: '100%'}}></div>}
                                 containerElement={<div style={{height: '100%'}}></div>}
                                 MarkerLocations ={places}
