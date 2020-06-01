@@ -1,6 +1,6 @@
 import React from 'react'
 import WrappedMap from './GoogleMap'
-import { key } from '../../key'
+// import { key } from '../../key'
 const places= [
     {
       _id: 1,
@@ -22,7 +22,7 @@ const places= [
     }
   ]
 const PractitionerLocation = () => {
-    console.log(key)
+    // console.log(key)
     return (
                     <WrappedMap 
                     googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
