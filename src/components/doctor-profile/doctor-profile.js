@@ -1,7 +1,7 @@
 import React from 'react'
 import  './doctor-profile.css'
 import WrappedMap from '../Map/GoogleMap'
-// import { key } from '../../key'
+// import { key } from '../../key';
 import Book from '../book/book'
 import { withRouter } from 'react-router-dom'
 const DoctorProfile = ({location}) => {
