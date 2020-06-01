@@ -3,13 +3,15 @@ import  './doctor-profile.css'
 import WrappedMap from '../Map/GoogleMap'
 import { key } from '../../key'
 import Book from '../book/book'
-const DoctorProfile = () => {
+import { withRouter } from 'react-router-dom'
+const DoctorProfile = ({location}) => {
+    const {name, specialty, image, biography, degree, phone, email, lat, lng,} = location.state.details
     const places= [  
         {
           _id: 1,
-          name: 'Iferika Medicine Shop',
-          lat: '9.1510221',
-          lng: '7.3187136'
+          name: `Dr ${name} office`,
+          lat: lat,
+          lng: lng
         }
       ]
     return (
@@ -26,7 +28,7 @@ const DoctorProfile = () => {
                                 <div class="dl-profile-text">
                                     <div>
                                         <div class="dl-profile-practice-name">
-                                        </div>12 Mabushi Road, Abuja
+                                        </div>{location.state.details.location}
                                     </div>
                                 </div>
                                 <div class="dl-profile-text">
@@ -36,7 +38,7 @@ const DoctorProfile = () => {
                             </div>
                             <div className="dl-profile-doctor-place-map">
                             <WrappedMap 
-                                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key.GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
+                                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
                                 loadingElement={<div style={{height: '100%'}}></div>}
                                 containerElement={<div style={{height: '100%'}}></div>}
                                 MarkerLocations ={places}
@@ -48,29 +50,48 @@ const DoctorProfile = () => {
             
                 <div class="dl-profile-card " id="biography">
                     <div className="dl-profile-card-section">                       
-                    <div class="dl-profile-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 20 14"><path d="M0 0h12v2H0V0zm14 0h6v2h-6V0zM0 4h17v2H0V4zm0 4h4v2H0V8zm5 0h15v2H5V8zm-5 4h11v2H0v-2z"></path></svg>
-                    </div>          
+                        <div class="dl-profile-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 20 14"><path d="M0 0h12v2H0V0zm14 0h6v2h-6V0zM0 4h17v2H0V4zm0 4h4v2H0V8zm5 0h15v2H5V8zm-5 4h11v2H0v-2z"></path></svg>
+                        </div>          
                             <div class="dl-profile-card-content">
                                 <h3 class="dl-profile-card-title">
                                 Biography 
                                 </h3>
                                 <div class="dl-profile-text dl-profile-bio">
-                                   <p>Doctor Marlène Kosacki, General practitioner, is pleased to welcome you to his office located at 6, Grande Rue in Le Fontanil-Cornillon (38120). Please note: for new patients, online appointments are not possible. Please contact 04 76 75 28 82, only if you live in Le Fontanil. She receives all of her patients, both children and adults, for various types of general medical consultations. An experienced practitioner, Doctor Kosacki monitors his patients in order to support them throughout their health</p>
-                                </div>                               
-                            </div>
-                            
+                                   <p> Dr. {name} {biography}</p>
+                                </div> 
+                                <hr/>
+                                <strong >
+                                    Spoken languages 
+                                </strong> 
+                                    <p> English, Hausa, Yoruba</p>                             
+                            </div> 
                     </div>
+                <hr/>
+                    <div className="dl-profile-card-section">                       
+                        <div class="dl-profile-card-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        </div>          
+                            <div class="dl-profile-card-content">
+                                <h3 class="dl-profile-card-title">
+                                Degress 
+                                </h3>
+                                <div class="dl-profile-text dl-profile-bio">
+                                   <p>{degree}</p>
+                                </div>                                                            
+                            </div> 
+                    </div>
+               
                 </div> 
                 <div class="dl-profile-card " id="opening_hours">
                     <div className="dl-profile-card-section">                       
-                    <div class="dl-profile-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 20 14"><path d="M0 0h12v2H0V0zm14 0h6v2h-6V0zM0 4h17v2H0V4zm0 4h4v2H0V8zm5 0h15v2H5V8zm-5 4h11v2H0v-2z"></path></svg>
+                    <div class="dl-profile-card-icon"><i class="fa fa-address-card-o" aria-hidden="true"></i>
                     </div>          
                             <div class="dl-profile-card-content">
                                 <h3 class="dl-profile-card-title">
-                                Biography 
+                                Contact 
                                 </h3>
                                 <div class="dl-profile-text dl-profile-bio">
-                                   <p>Doctor Marlène Kosacki, General practitioner, is pleased to welcome you to his office located at 6, Grande Rue in Le Fontanil-Cornillon (38120). Please note: for new patients, online appointments are not possible. Please contact 04 76 75 28 82, only if you live in Le Fontanil. She receives all of her patients, both children and adults, for various types of general medical consultations. An experienced practitioner, Doctor Kosacki monitors his patients in order to support them throughout their health</p>
+                                   <span>Phone : {phone}</span> <br/>
+                                   <span>Email : {email}</span>
                                 </div>                               
                             </div>
                             
@@ -78,9 +99,10 @@ const DoctorProfile = () => {
                 </div> 
             
             </div>
-                <Book />            
+                <Book />   
+              
         </div>
     )
 }
 
-export default DoctorProfile
+export default withRouter(DoctorProfile)

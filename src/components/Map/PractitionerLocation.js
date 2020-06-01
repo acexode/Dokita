@@ -25,7 +25,7 @@ const PractitionerLocation = () => {
     console.log(key)
     return (
                     <WrappedMap 
-                    googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key.GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
+                    googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GoogleMap}&v=3.exp&libraries=geometry,drawing,places`}
                     loadingElement={<div style={{height: '100%'}}></div>}
                     containerElement={<div style={{height: '100%'}}></div>}
                     MarkerLocations ={places}

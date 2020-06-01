@@ -9,23 +9,24 @@
     position: absolute;
     background-color: #f6f6f6;
     width: 95%;
-    height: auto;
+    height: 200px;
     margin-left: 1%;
-    padding: 0 44px;
+    /* padding: 0 44px; */
     /* margin-left: 10px; */
     overflow: auto;
     border: 1px solid #ddd;
+    text-align: left;
     z-index: 1;
   }
   
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 15px;
     text-decoration: none;
     display: block;
   }
   
-  .dropdown a:hover {background-color: #ddd;}
+  .dropdown a:hover {background-color: #CCECFA;}
   
   .show {display: block;}
 
@@ -33,6 +34,13 @@
     cursor: pointer;
   }
   .drop-menu:hover{
-    background: #d1d1d1;
+    background: #CCECFA;
     
+  }
+
+  .little-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 9px;
   }

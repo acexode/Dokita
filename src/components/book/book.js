@@ -1,13 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './book.css'
 import DatePicker from "react-datepicker";
- 
+import { ReactComponent as Check } from './check.svg';
 import "react-datepicker/dist/react-datepicker.css";
+import RadioInput from '../radio/RadioInput';
+const reasons = ['Pediatric Consultation','Treatment renewal', 'General Consultation', 'Video Consultation'
+
+]
 const Book = () => {
     const [date, setdate] = useState(new Date())
+    const [mode, setmode] = useState('')
+    const [showSubmit, setshowSubmit] = useState(false)
+    const [showModal, setshowModal] = useState(false)
+    const [reason, setreason] = useState('Choose a reason')
     const handleChange = date => {
         setdate(date)
+        if(date){
+            setshowSubmit(true)
+        }
       };
+    const handleSubmit = e => {
+        e.preventDefault();
+        setdate('')
+        setmode('')
+        setreason('')
+        setshowModal(true)
+      };
+      useEffect(() => {
+         
+      }, [mode])
     return (
         <div class="dl-profile-booking-wrapper">
     <div class="dl-profile-booking" id="booking">
@@ -24,78 +45,92 @@ const Book = () => {
                                 <span class="dl-text dl-text-body dl-text-color-inherit">Fill in the following information</span>
                             </div>
                         </div>
+                        <form onSubmit={handleSubmit}>
                         <div class="booking booking-compact-layout">
-                            <div>
-                                <div class="dl-step">
-                                    <div class="dl-step-progress dl-step-progress-completed">
-
-                                    </div>
+                            
+                                <div class="dl-step">                                   
                                     <div class="dl-step-number dl-step-number-completed">
-                                        <svg width="20px" height="20px" viewBox="0 0 20 20">
-                                            <g fill="none" fill-rule="evenodd">
-                                                <g fill="#17B355">
-                                                    <path
-                                                        d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10z">
-                                                    </path>
-                                                </g>
-                                                <g transform="translate(5.000000, 5.000000)">
-                                                    <rect width="10" height="10"></rect>
-                                                    <path
-                                                        d="M9.614.685a.823.823 0 00-.686-.168.991.991 0 00-.613.385L3.983 7.23 1.601 4.656a.82.82 0 00-.65-.313.966.966 0 00-.674.264 1.044 1.044 0 00-.276.698.952.952 0 00.252.698c1.925 2.15 3.024 3.329 3.297 3.538a.93.93 0 00.71.18.837.837 0 00.59-.397l4.98-7.267a.974.974 0 00.157-.722.964.964 0 00-.373-.65z"
-                                                        fill="#FFF"></path>
-                                                </g>
-                                            </g>
-                                        </svg></div>
+                                        <Check />
+                                    </div>
                                     <div class="dl-layout-container dl-layout-spacing-xs-0">
+                                            
                                         <div class="dl-layout-item dl-layout-size-xs-12 dl-layout-size-sm-12">
                                             <label class="dl-text dl-text-body-subtitle dl-step-label"
                                                 for="booking_motive">Mode of consultation</label>
-                                            <div>
-                                                
-                                            </div>
+                                                <div className="form-row">                                               
+                                                     <RadioInput name="mode" handleChange={(e) =>setmode(e.target.value)} value="office" label="At office" icon="fa fa-hospital-o float-right"  />                                               
+                                                </div>
+                                                <div className="form-row">                                                
+                                                     <RadioInput name="mode" handleChange={(e) =>setmode(e.target.value)}  value="video" label="On video" icon="fa fa-video-camera float-right" />                                               
+                                                </div>
                                         </div>
-                                        <div class="dl-step-children dl-layout-item dl-layout-size-xs-12 dl-layout-size-sm-12">
-                                        <hr class="dl-divider" />
-                                        <div class="dropdown">
-                                            <button style={{width:'100%'}} class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Choose Reason
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                                             
+                                    </div>                                
                             </div>
+                            {mode != '' && (<>
                             <hr class="dl-divider" />
-                            <div>
                                 <div class="dl-step">
                                     <div class="dl-step-number">
                                         <div>2</div>
                                     </div>
                                     <div class="dl-layout-container dl-layout-spacing-xs-0">
                                         <div class="dl-layout-item dl-layout-size-xs-12 dl-layout-size-sm-12"><label
-                                                class="dl-text dl-text-body-subtitle dl-step-label">Schedule an appointment</label></div>
-                                        <div
-                                            class="dl-step-children dl-layout-item dl-layout-size-xs-12 mx-auto dl-layout-size-sm-12">
-                                           <DatePicker
-                                                className="ml-5 my-3"
-                                                selected={date}
-                                                onChange={handleChange}
-                                            />
+                                                class="dl-text dl-text-body-subtitle dl-step-label">Schedule a {mode}  appointment</label></div>
+                                        {console.log(mode)}
+                                        <div class="dl-step-children dl-layout-item dl-layout-size-xs-12 mx-auto dl-layout-size-sm-12">                                          
+                                            <p className="py-2">Reason for consultation</p>
+                                            <div class="dropdown my-2">
+                                                <input  class="btn  dropdown-toggle" placeholder="Choose Reason"  value={reason} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                                            <div className="after"></div>     
+                                            
+                                                <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" >Choose a reason</a>
+                                                    {reasons.map(e =>(
+                                                        <a onClick={()=> setreason(e)} class="dropdown-item" >{e}</a>
+
+                                                    ))}
+                                                    
+                                                </div>
+                                                </div>
+                                            <label className="my-2">Choose a date for appointment</label>
+                                            <DatePicker    
+                                                    style={{width:'100%'}}                                       
+                                                    className="form-control w-100"
+                                                    selected={date}
+                                                    onChange={handleChange}
+                                                />
+                                             {showSubmit && 
+                                                <button 
+                                                    type="submit" 
+                                                    id="myBtn"
+                                                    className=" my-3 book-btn btn btn-block">Submit
+                                                </button>
+                                             } 
+                                            
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
+                                        </>)}                           
+                            
                         </div>
+                        </form>
+                        {showModal && 
+                            <div id="myModal" class="modal" onClick={() => setshowModal(false)} >
+                                <div class="modal-content">
+                                    <span onClick={() => setshowModal(false)} class="close">&times;</span>
+                                    <h1 className="modal-check my-1"><Check /></h1>
+                                    <h3 className="my-3">Booked Successfully</h3>
+                                </div>
+
+                                </div>                        
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   
 </div>
     )
 }

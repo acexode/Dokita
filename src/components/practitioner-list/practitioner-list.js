@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import PractitionerLocation from '../Map/PractitionerLocation'
 import { allPractitioners } from '../../list'
 import SimpleReactCalendar from 'simple-react-calendar'
-const PractitionerLists = () => {
-   
+const PractitionerLists = ({location}) => {
+   console.log(location)
+   let {specialty} = location.state
+   console.log(specialty)
     return (
         <div class="">
         <div class="container">
             <div class="row"> 
-                {allPractitioners.map(({name, id, image, title},idx, arr) => (
+                {allPractitioners.filter(e => e.specialty == specialty).map(({name, id, image, specialty},idx, arr) => (
                     <div key={id} class="col-lg-8 p-3 mb-3" style={{border: '1px solid #DEE2E7', borderRadius:'5px'}}>
                         <div class="row">
                             <div class="col-md-12">
@@ -19,7 +21,7 @@ const PractitionerLists = () => {
                                     
                                          <div className="ml-3 mt-3 d-flex flex-column">
                                             <a href="#" class="prise">{name}</a>
-                                            <span>{title}</span>                                    
+                                            <span>{specialty}</span>                                    
                                             <span className="mt-2"><i class="fa fa-video-camera pr-1" aria-hidden="true"></i> Video consultation available
                                             </span>
                                             <Link className="pt-2 text-success" to="">Find out more</Link>
@@ -87,4 +89,4 @@ const PractitionerLists = () => {
     )
 }
 
-export default PractitionerLists
+export default withRouter(PractitionerLists)
