@@ -20,7 +20,7 @@ export const prodConfig = {
 //       config = devConfig
 //   }
 //   console.log(config)
-firebase.initializeApp(devConfig)
+firebase.initializeApp(prodConfig)
 // firebase.initializeApp(firebaseConfig)
 
 export const firestore = firebase.firestore()
