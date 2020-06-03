@@ -6,7 +6,7 @@ const SearchDropdown = ({practitioners,specialties , handleSelect}) => {
     console.log(practitioners)
     console.log(specialties)
     return (
-        <div id="myDropdown" class="dropdown-content">  
+        <div id="myDropdown" class="dropdown-content">   
         {specialties.map(e => (
             <a className="drop-menu text-dark"  onClick={() => handleSelect(e)} >{e}</a>
 

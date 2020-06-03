@@ -1,17 +1,22 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import PractitionerLocation from '../Map/PractitionerLocation'
-import { allPractitioners } from '../../list'
+
 import SimpleReactCalendar from 'simple-react-calendar'
-const PractitionerLists = ({location}) => {
+import fetchPractitioners from '../../redux/practitioners/fetchPractitioners'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getPractitioners, getPractitionerError, getPractitionerPending } from '../../redux/practitioners/practitioners.reducer'
+
+const PractitionerLists = ({location, fetchedPractitioners}) => {
    console.log(location)
    let {specialty} = location.state
-   console.log(specialty)
+   console.log(fetchedPractitioners)
     return (
         <div class="">
         <div class="container">
             <div class="row"> 
-                {allPractitioners.filter(e => e.specialty == specialty).map(({name, id, image, specialty},idx, arr) => (
+                {fetchedPractitioners.filter(e => e.specialty == specialty).map(({name, id, image, specialty},idx, arr) => (
                     <div key={id} class="col-lg-8 p-3 mb-3" style={{border: '1px solid #DEE2E7', borderRadius:'5px'}}>
                         <div class="row">
                             <div class="col-md-12">
@@ -88,5 +93,12 @@ const PractitionerLists = ({location}) => {
     </div>
     )
 }
-
-export default withRouter(PractitionerLists)
+const mapStateToProps = state => {
+    console.log(state)
+    return ({
+        error: getPractitionerError(state),
+       fetchedPractitioners : getPractitioners(state),
+       pending:  getPractitionerPending(state)
+     })
+}
+export default withRouter(connect(mapStateToProps)(PractitionerLists))
