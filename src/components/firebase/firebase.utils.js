@@ -1,7 +1,8 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-//  import devConfig from '../../firebase.config'
+ import devConfig from '../../firebase.config'
+
 export const prodConfig = {
     apiKey: process.env.REACT_APP_apiKey,
     authDomain: process.env.REACT_APP_authDomain,
@@ -12,16 +13,12 @@ export const prodConfig = {
     appId: process.env.REACT_APP_appId,
     measurementId: process.env.REACT_APP_measurementId
   };
-//   console.log(process.env.NODE_ENV === "production")
-//   let config 
-//   if(process.env.NODE_ENV === "production"){
-//         config = prodConfig
-//   }else{
-//       config = devConfig
-//   }
-//   console.log(config)
-firebase.initializeApp(prodConfig)
-// firebase.initializeApp(firebaseConfig)
+
+// for production
+// firebase.initializeApp(prodConfig)
+
+// for development
+firebase.initializeApp(devConfig)
 
 export const firestore = firebase.firestore()
 
