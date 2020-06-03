@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-// import devConfig from '../../firebase.config'
+ import devConfig from '../../firebase.config'
 export const prodConfig = {
     apiKey: process.env.REACT_APP_apiKey,
     authDomain: process.env.REACT_APP_authDomain,
@@ -20,7 +20,7 @@ export const prodConfig = {
 //       config = devConfig
 //   }
 //   console.log(config)
-firebase.initializeApp(prodConfig)
+firebase.initializeApp(devConfig)
 // firebase.initializeApp(firebaseConfig)
 
 export const firestore = firebase.firestore()

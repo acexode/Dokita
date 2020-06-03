@@ -1,36 +1,43 @@
 import React from 'react'
 import './partner.css'
+import jalingo from '../../assets/fed-med-jalingo.jpg'
+import aminu from '../../assets/Aminu Kano Teaching Hospita.jpg'
+import luth from '../../assets/luth.png'
+import yaba from '../../assets/Federal-Neuropsychiatric-Hospital-Yaba.jpg'
+import kaduna from '../../assets/kaduna.jpeg'
+import abuja from '../../assets/logo2x.svg'
+import yola from '../../assets/fed-med-yola.jpg'
 const Partners = () => {
     let hospitals = [
         {
             title:'National Hospital Abuja',
-            image: 'https://nationalhospital.gov.ng/wp-content/themes/template/assets/img//logo2x.svg',
+            image: abuja,
             location: 'Abuja'
         },
         {
             title:'Aminu Kano Teaching Hospital',
-            image: 'https://2.bp.blogspot.com/-sMs1c0gbZNg/XJZ0QETWo3I/AAAAAAAADRA/atphLZBLeu8qE8jLHs5uBAVN799ihpsMQCLcBGAs/s1600/Aminu%2BKano%2BTeaching%2BHospital%252C%2BAdmission%2Binto%2BPost%2BBasic%2BPaediatric%2Band%2BNephrology%2BNursing%2BProgramme.jpg',
+            image: aminu,
             location: 'Kano'
         },
         {
             title:'Lagos University Teaching Hospital',
-            image: 'https://i1.wp.com/nigerianmedinterns.com/wp-content/uploads/2019/05/S90513-1427221.jpg?ssl=1',
+            image: luth,
             location: 'Lagos'
         },
         {
-            title:'Limi Hospital',
-            image: 'https://media-exp1.licdn.com/dms/image/C510BAQHXZPkule1RFw/company-logo_200_200/0?e=2159024400&v=beta&t=sYiec--AN57SDDqtX4FH7S_zeAibma0xTt5NTGfj8fU',
-            location: 'Abuja'
+            title:'Federal Medical Center Jalingo',
+            image: jalingo,
+            location: 'Jalingo'
         },
         {
-            title:'Amana Medical Centre',
-            image: 'https://scontent.fabv2-1.fna.fbcdn.net/v/t1.0-9/55492986_584428878713680_5252875685977915392_n.jpg?_nc_cat=103&_nc_sid=09cbfe&_nc_eui2=AeGlW7YTUQWhI_quzgcq4-tmqZnq3uujis2pmere66OKzYiNZePLZy_rwvlZV56vrS6ysYbwgF91YK1_0Vfed15N&_nc_ohc=69rKV4u-VoAAX_7jbG9&_nc_ht=scontent.fabv2-1.fna&oh=655b30d621234f50de33c2f95fcbf3d3&oe=5EF75439',
-            location: 'Abuja'
+            title:'Federal Neuropsychiatric Hospital Yaba',
+            image: kaduna,
+            location: 'Kaduna'
         },
         {
-            title:'Lily Hospitals',
-            image: 'https://lilyhospitals.com/wp-content/uploads/2019/10/cropped-real-logo.jpg"',
-            location: 'Warri'
+            title:'Federal Neuropsychiatric Hospital Yaba',
+            image: yaba,
+            location: 'Yaba'
         },
     ]
     return (
